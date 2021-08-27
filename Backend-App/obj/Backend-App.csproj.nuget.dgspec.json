@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\AMENI\\Desktop\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj": {}
+    "C:\\Users\\AMENI\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj": {}
   },
   "projects": {
-    "C:\\Users\\AMENI\\Desktop\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj": {
+    "C:\\Users\\AMENI\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\AMENI\\Desktop\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj",
+        "projectUniqueName": "C:\\Users\\AMENI\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj",
         "projectName": "Backend-App",
-        "projectPath": "C:\\Users\\AMENI\\Desktop\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj",
+        "projectPath": "C:\\Users\\AMENI\\internship-repo\\Backend-App\\Backend-App\\Backend-App.csproj",
         "packagesPath": "C:\\Users\\AMENI\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\AMENI\\Desktop\\internship-repo\\Backend-App\\Backend-App\\obj\\",
+        "outputPath": "C:\\Users\\AMENI\\internship-repo\\Backend-App\\Backend-App\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AMENI\\AppData\\Roaming\\NuGet\\NuGet.Config",
