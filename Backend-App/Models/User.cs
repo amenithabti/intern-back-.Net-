@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Backend_App.Models
 {
-    public class User
+    public class User 
     {
         [Key]
 
@@ -19,5 +20,9 @@ namespace Backend_App.Models
         [Column(TypeName = "nvarchar(30)")]
 
         public string password { get; set; }
+
+        [Column(TypeName = "nvarchar(30)")]
+        public string FullName { get; set; }
+
     }
 }

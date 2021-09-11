@@ -25,6 +25,9 @@ namespace Backend_App.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(30)");
+
                     b.Property<string>("password")
                         .HasColumnType("nvarchar(30)");
 

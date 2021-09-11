@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend_App.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210827193114_initial")]
-    partial class initial
+    [Migration("20210902153740_recreatedb")]
+    partial class recreatedb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,6 +26,9 @@ namespace Backend_App.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("password")
                         .HasColumnType("nvarchar(30)");

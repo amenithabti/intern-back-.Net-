@@ -15,9 +15,7 @@ namespace Backend_App.Controllers
     {
         private readonly ApplicationContext _applicationContext;
 
-
-        public HomeController(ApplicationContext applicationContext)
-        {
+        public HomeController(ApplicationContext applicationContext){
             _applicationContext = applicationContext;
         }
         [HttpGet]
@@ -25,44 +23,50 @@ namespace Backend_App.Controllers
         {
             return BadRequest();
         }
-
+        public string HashagePassword(string password) {
+            byte[] encData_byte = new byte[password.Length];
+            encData_byte = System.Text.Encoding.UTF8.GetBytes(password);
+            string encodedData = Convert.ToBase64String(encData_byte);
+            return encodedData;
+        }
         [HttpPost]
         [Route("signup")]
 
-        public IActionResult SignUp(string username, string password)
-        {
-
+        public IActionResult SignUp(User userBody) {
             User user = new User();
-            user.username = username;
-            user.password = password;
+            user.FullName = userBody.FullName;
+            user.username = userBody.username;
+            user.password = HashagePassword(userBody.password);
             _applicationContext.users.Add(user);
             _applicationContext.SaveChanges();
-
-            return Ok("user added");
+             return Ok(new { msg ="user added" });
         }
 
         [HttpGet]
         [Route("users")]
-        public IActionResult getAllUser()
-        {
-            var listuser = _applicationContext.users.ToList();
+        public IActionResult getAllUser(){
+            List<User> listuser = _applicationContext.users.ToList();
             return Ok(listuser);
-
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("login")]
 
-        public IActionResult login(string username , string password)
-        {
-
-            var user = _applicationContext.users.FirstOrDefault(x => x.username == username && x.password == password);
+        public IActionResult login(string username , string password) {
+            var user = _applicationContext.users.FirstOrDefault(x => x.username == username && HashagePassword(x.password) == password);
             if (user !=null ) {
-                return  Ok(" User successfully logged in");
+                return  Ok(new { msg=" User successfully logged in"});
             }
-
-            return BadRequest();
+           return BadRequest();
         }
+
+
+
+
+
+
+
+        
     }
 
 }

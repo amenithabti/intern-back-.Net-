@@ -2,7 +2,7 @@
 
 namespace Backend_App.Migrations
 {
-    public partial class initial : Migration
+    public partial class recreatedb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,7 +13,8 @@ namespace Backend_App.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     username = table.Column<string>(type: "nvarchar(30)", nullable: true),
-                    password = table.Column<string>(type: "nvarchar(30)", nullable: true)
+                    password = table.Column<string>(type: "nvarchar(30)", nullable: true),
+                    FullName = table.Column<string>(type: "nvarchar(30)", nullable: true)
                 },
                 constraints: table =>
                 {
