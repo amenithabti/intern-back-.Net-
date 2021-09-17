@@ -31,11 +31,11 @@ namespace Backend_App.Controllers
         }
         [HttpPost]
         [Route("signup")]
-
         public IActionResult SignUp(User userBody) {
             User user = new User();
             user.FullName = userBody.FullName;
             user.username = userBody.username;
+            user.role = userBody.role;
             user.password = HashagePassword(userBody.password);
             _applicationContext.users.Add(user);
             _applicationContext.SaveChanges();
@@ -55,10 +55,11 @@ namespace Backend_App.Controllers
         public IActionResult login(string username , string password) {
             var user = _applicationContext.users.FirstOrDefault(x => x.username == username && HashagePassword(x.password) == password);
             if (user !=null ) {
-                return  Ok(new { msg=" User successfully logged in"});
+                return  Ok(user);
             }
            return BadRequest();
         }
+       
 
 
 

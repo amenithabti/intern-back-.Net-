@@ -1,31 +1,31 @@
-﻿using Microsoft.AspNetCore.Identity;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Backend_App.Models
 {
-    public class User 
+    public class Formateur
     {
         [Key]
 
         public int Id { get; set; }
         [Column(TypeName = "nvarchar(30)")]
 
-        public string username { get; set; }
+        public string email { get; set; }
 
         [Column(TypeName = "nvarchar(30)")]
 
-        public string password { get; set; }
+        public string fullname { get; set; }
 
         [Column(TypeName = "nvarchar(30)")]
-        public string FullName { get; set; }
+        public string phonenumber { get; set; }
 
         [Column(TypeName = "nvarchar(30)")]
-        public string role { get; set; }
+        public string nationality { get; set; }
+
 
     }
 }

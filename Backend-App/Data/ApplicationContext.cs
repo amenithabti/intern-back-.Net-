@@ -12,5 +12,7 @@ namespace Backend_App.Data
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options): base(options) { }
         public DbSet<User> users { get; set; }
+
+        public DbSet<Formateur> formateurs { get; set; }
     }
 }

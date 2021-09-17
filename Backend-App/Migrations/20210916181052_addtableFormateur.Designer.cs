@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Backend_App.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20210902153740_recreatedb")]
-    partial class recreatedb
+    [Migration("20210916181052_addtableFormateur")]
+    partial class addtableFormateur
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,6 +19,30 @@ namespace Backend_App.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("Backend_App.Models.Formateur", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("fullname")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("nationality")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("phonenumber")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("formateurs");
+                });
 
             modelBuilder.Entity("Backend_App.Models.User", b =>
                 {
@@ -31,6 +55,9 @@ namespace Backend_App.Migrations
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("password")
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("role")
                         .HasColumnType("nvarchar(30)");
 
                     b.Property<string>("username")
