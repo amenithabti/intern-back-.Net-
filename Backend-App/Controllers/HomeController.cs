@@ -51,15 +51,15 @@ namespace Backend_App.Controllers
 
         [HttpPost]
         [Route("login")]
-
-        public IActionResult login(string username , string password) {
-            var user = _applicationContext.users.FirstOrDefault(x => x.username == username && HashagePassword(x.password) == password);
-            if (user !=null ) {
-                return  Ok(user);
-            }
-           return BadRequest();
+        public IActionResult login(User userBody)
+        {
+            var user = _applicationContext.users.FirstOrDefault(x => x.username == userBody.username);
+            if (user != null && user.password == HashagePassword(userBody.password))
+                {
+                return Ok(user);
+                }
+            return Unauthorized("Invalid username and password");
         }
-       
 
 
 
@@ -67,7 +67,7 @@ namespace Backend_App.Controllers
 
 
 
-        
+
     }
 
 }
