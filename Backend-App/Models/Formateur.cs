@@ -27,5 +27,10 @@ namespace Backend_App.Models
         public string nationality { get; set; }
 
 
+        public int ? UserId{ get; set; }
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+
+
     }
 }
