@@ -39,7 +39,7 @@ namespace Backend_App.Controllers
             user.password = HashagePassword(userBody.password);
             _applicationContext.users.Add(user);
             _applicationContext.SaveChanges();
-             return Ok(new { msg ="user added" });
+             return Ok(new { userId = user.Id });
         }
 
         [HttpGet]

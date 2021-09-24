@@ -26,6 +26,7 @@ namespace Backend_App.Controllers
             formateur.fullname = body.fullname;
             formateur.email = body.email;
             formateur.phonenumber = body.phonenumber;
+            formateur.UserId = body.UserId;
             _applicationContext.formateurs.Add(formateur);
             _applicationContext.SaveChanges();
             return Ok(new { msg = "trainer added" });
